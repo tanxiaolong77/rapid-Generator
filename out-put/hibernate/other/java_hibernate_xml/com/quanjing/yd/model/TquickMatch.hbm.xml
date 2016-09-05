@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.quanjing.yd.model">
+    <class name="TquickMatch" table="t_quick_match">
+
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="increment"/>
+        </id>
+		
+		
+		
+		<property 
+			name="team1Id" 
+			column="team1_id" 
+			update="true"
+            insert="true"
+            type="java.lang.Long"
+			not-null="true" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="team2Id" 
+			column="team2_id" 
+			update="true"
+            insert="true"
+            type="java.lang.Long"
+			not-null="true" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="createTime" 
+			column="create_time" 
+			update="true"
+            insert="true"
+            type="java.util.Date"
+			not-null="false" 
+			unique="false" 
+			length="0"/>
+		
+		<property 
+			name="creator" 
+			column="creator" 
+			update="true"
+            insert="true"
+            type="java.lang.Long"
+			not-null="false" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="status" 
+			column="status" 
+			update="true"
+            insert="true"
+            type="java.lang.Integer"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<!-- One-To-Many attributes -->
+
+		<!-- Many-To-One attributes -->
+
+    </class>
+</hibernate-mapping>
+

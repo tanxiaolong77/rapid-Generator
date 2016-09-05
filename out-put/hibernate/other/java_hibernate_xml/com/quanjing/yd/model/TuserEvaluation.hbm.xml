@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.quanjing.yd.model">
+    <class name="TuserEvaluation" table="t_user_evaluation">
+
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="increment"/>
+        </id>
+		
+		
+		
+		<property 
+			name="userId" 
+			column="user_id" 
+			update="true"
+            insert="true"
+            type="java.lang.Long"
+			not-null="true" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="evaluatedUserId" 
+			column="evaluated_user_id" 
+			update="true"
+            insert="true"
+            type="java.lang.Long"
+			not-null="true" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="createTime" 
+			column="create_time" 
+			update="true"
+            insert="true"
+            type="java.util.Date"
+			not-null="false" 
+			unique="false" 
+			length="0"/>
+		
+		<property 
+			name="type" 
+			column="type" 
+			update="true"
+            insert="true"
+            type="java.lang.Integer"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="status" 
+			column="status" 
+			update="true"
+            insert="true"
+            type="java.lang.Integer"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="activityId" 
+			column="activity_id" 
+			update="true"
+            insert="true"
+            type="java.lang.Long"
+			not-null="false" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="offerId" 
+			column="offer_id" 
+			update="true"
+            insert="true"
+            type="java.lang.Long"
+			not-null="false" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="star" 
+			column="star" 
+			update="true"
+            insert="true"
+            type="Long"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="truthInfoStar" 
+			column="truth_info_star" 
+			update="true"
+            insert="true"
+            type="Long"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="friendlyStar" 
+			column="friendly_star" 
+			update="true"
+            insert="true"
+            type="Long"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="appearStar" 
+			column="appear_star" 
+			update="true"
+            insert="true"
+            type="Long"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="evaluation" 
+			column="evaluation" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="255"/>
+		
+		<!-- One-To-Many attributes -->
+
+		<!-- Many-To-One attributes -->
+
+    </class>
+</hibernate-mapping>
+

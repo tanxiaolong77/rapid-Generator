@@ -1,0 +1,280 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.quanjing.yd.model">
+    <class name="Tuser" table="t_user">
+
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="increment"/>
+        </id>
+		
+		
+		
+		<property 
+			name="nickName" 
+			column="nick_name" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="50"/>
+		
+		<property 
+			name="username" 
+			column="username" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="true" 
+			unique="true" 
+			length="40"/>
+		
+		<property 
+			name="password" 
+			column="password" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="true" 
+			unique="false" 
+			length="60"/>
+		
+		<property 
+			name="phone" 
+			column="phone" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="true" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="name" 
+			column="name" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="gender" 
+			column="gender" 
+			update="true"
+            insert="true"
+            type="java.lang.Integer"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="type" 
+			column="type" 
+			update="true"
+            insert="true"
+            type="java.lang.Integer"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="schoolId" 
+			column="school_id" 
+			update="true"
+            insert="true"
+            type="java.lang.Long"
+			not-null="false" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="schoolName" 
+			column="school_name" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="50"/>
+		
+		<property 
+			name="subject" 
+			column="subject" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="50"/>
+		
+		<property 
+			name="industry" 
+			column="industry" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="50"/>
+		
+		<property 
+			name="company" 
+			column="company" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="50"/>
+		
+		<property 
+			name="position" 
+			column="position" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="50"/>
+		
+		<property 
+			name="birthday" 
+			column="birthday" 
+			update="true"
+            insert="true"
+            type="java.util.Date"
+			not-null="false" 
+			unique="false" 
+			length="0"/>
+		
+		<property 
+			name="avatar" 
+			column="avatar" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="150"/>
+		
+		<property 
+			name="emotional" 
+			column="emotional" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="20"/>
+		
+		<property 
+			name="signature" 
+			column="signature" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="200"/>
+		
+		<property 
+			name="homeTown" 
+			column="home_town" 
+			update="true"
+            insert="true"
+            type="java.lang.Long"
+			not-null="false" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="interest" 
+			column="interest" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="2000"/>
+		
+		<property 
+			name="star" 
+			column="star" 
+			update="true"
+            insert="true"
+            type="Long"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="truthInfoStar" 
+			column="truth_info_star" 
+			update="true"
+            insert="true"
+            type="Long"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="friendlyStar" 
+			column="friendly_star" 
+			update="true"
+            insert="true"
+            type="Long"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="appearStar" 
+			column="appear_star" 
+			update="true"
+            insert="true"
+            type="Long"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="createTime" 
+			column="create_time" 
+			update="true"
+            insert="true"
+            type="java.util.Date"
+			not-null="true" 
+			unique="false" 
+			length="0"/>
+		
+		<property 
+			name="status" 
+			column="status" 
+			update="true"
+            insert="true"
+            type="java.lang.Integer"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="lastLoginTime" 
+			column="last_login_time" 
+			update="true"
+            insert="true"
+            type="java.util.Date"
+			not-null="false" 
+			unique="false" 
+			length="0"/>
+		
+		<!-- One-To-Many attributes -->
+
+		<!-- Many-To-One attributes -->
+
+    </class>
+</hibernate-mapping>
+

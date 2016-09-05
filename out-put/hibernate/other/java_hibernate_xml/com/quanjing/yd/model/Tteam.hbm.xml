@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.quanjing.yd.model">
+    <class name="Tteam" table="t_team">
+
+        <id name="id" column="id" type="java.lang.Long">
+            <generator class="increment"/>
+        </id>
+		
+		
+		
+		<property 
+			name="user1Id" 
+			column="user1_id" 
+			update="true"
+            insert="true"
+            type="java.lang.Long"
+			not-null="true" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="user2Id" 
+			column="user2_id" 
+			update="true"
+            insert="true"
+            type="java.lang.Long"
+			not-null="true" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="type" 
+			column="type" 
+			update="true"
+            insert="true"
+            type="java.lang.Integer"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="cityId" 
+			column="city_id" 
+			update="true"
+            insert="true"
+            type="java.lang.Long"
+			not-null="false" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="address" 
+			column="address" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="100"/>
+		
+		<property 
+			name="payType" 
+			column="pay_type" 
+			update="true"
+            insert="true"
+            type="java.lang.Integer"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="freeTime" 
+			column="free_time" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="100"/>
+		
+		<property 
+			name="haunt" 
+			column="haunt" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="200"/>
+		
+		<property 
+			name="status" 
+			column="status" 
+			update="true"
+            insert="true"
+            type="java.lang.Integer"
+			not-null="false" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="createTime" 
+			column="create_time" 
+			update="true"
+            insert="true"
+            type="java.util.Date"
+			not-null="false" 
+			unique="false" 
+			length="0"/>
+		
+		<property 
+			name="star" 
+			column="star" 
+			update="true"
+            insert="true"
+            type="java.lang.Float"
+			not-null="false" 
+			unique="false" 
+			length="12"/>
+		
+		<property 
+			name="temp" 
+			column="temp" 
+			update="true"
+            insert="true"
+            type="java.lang.Integer"
+			not-null="true" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="signature" 
+			column="signature" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="200"/>
+		
+		<property 
+			name="freeDay" 
+			column="free_day" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="200"/>
+		
+		<property 
+			name="food" 
+			column="food" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="200"/>
+		
+		<property 
+			name="alcohol" 
+			column="alcohol" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="200"/>
+		
+		<property 
+			name="teamGender" 
+			column="team_gender" 
+			update="true"
+            insert="true"
+            type="java.lang.Integer"
+			not-null="true" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="partyTime" 
+			column="party_time" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="200"/>
+		
+		<property 
+			name="fee" 
+			column="fee" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="200"/>
+		
+		<property 
+			name="palPurpose" 
+			column="pal_purpose" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="200"/>
+		
+		<!-- One-To-Many attributes -->
+
+		<!-- Many-To-One attributes -->
+
+    </class>
+</hibernate-mapping>
+

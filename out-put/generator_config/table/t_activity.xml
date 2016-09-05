@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--******************************
+ 强烈提醒: 如果你不想自定义配置,可以删除整个文件或是其中几列, 有定义的列才读自定义配置,没有定义的读数据库.不用一一对应
+ ***********************************-->
+ 
+<!-- 
+<数据库表名 className="类名称" tableAlias="表的别名">
+	<数据库列名 columnAlias="列的别名" 
+	javaType="自定义javaType"
+	unique="是否唯一性约束" nullable="是否可以为空" pk="是否主键,在表没有主键的情况下,可以指定一个代理主键" 
+	updatable="是否可以更新" insertable="是否插入"	
+	enumString="枚举值,以分号分隔,示例值:M(1,男);F(0,女) 或者是:M(男);F(女)" 
+	enumClassName="如果枚举有值,生成的类名称将是这个,没有枚举值，该配置无用.示例值:Sex"
+	hibernateValidatorExprssion="HibernateValidator表达式: @NotNull @Min(10) @Pattern(regex=, flag=)"
+	/>
+</数据库表名>
+ -->
+<t_activity className="Tactivity" tableAlias="Tactivity" >
+	<creator_id columnAlias="创建者的Id"
+		javaType="Long" 
+		unique="false" nullable="false" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="CreatorIdEnum"
+		hibernateValidatorExprssion="@NotNull "
+	/>
+	<user_id columnAlias="userId"
+		javaType="Long" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="UserIdEnum"
+		hibernateValidatorExprssion=""
+	/>
+	<team_id columnAlias="teamId"
+		javaType="Long" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="TeamIdEnum"
+		hibernateValidatorExprssion=""
+	/>
+	<type columnAlias="学校2:社会1"
+		javaType="Integer" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="TypeEnum"
+		hibernateValidatorExprssion=""
+	/>
+	<title columnAlias="title"
+		javaType="String" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="TitleEnum"
+		hibernateValidatorExprssion="@Length(max=50)"
+	/>
+	<introduce columnAlias="introduce"
+		javaType="String" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="IntroduceEnum"
+		hibernateValidatorExprssion="@Length(max=300)"
+	/>
+	<link columnAlias="link"
+		javaType="String" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="LinkEnum"
+		hibernateValidatorExprssion="@Length(max=200)"
+	/>
+	<city_id columnAlias="城市Id"
+		javaType="Long" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="CityIdEnum"
+		hibernateValidatorExprssion=""
+	/>
+	<address columnAlias="活动地址"
+		javaType="String" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="AddressEnum"
+		hibernateValidatorExprssion="@Length(max=100)"
+	/>
+	<require columnAlias="require"
+		javaType="String" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="RequireEnum"
+		hibernateValidatorExprssion="@Length(max=400)"
+	/>
+	<start_time columnAlias="开始时间"
+		javaType="java.util.Date" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="StartTimeEnum"
+		hibernateValidatorExprssion=""
+	/>
+	<create_time columnAlias="createTime"
+		javaType="java.util.Date" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="CreateTimeEnum"
+		hibernateValidatorExprssion=""
+	/>
+	<end_time columnAlias="结束时间"
+		javaType="java.util.Date" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="EndTimeEnum"
+		hibernateValidatorExprssion=""
+	/>
+	<fee columnAlias="费用说明"
+		javaType="String" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="FeeEnum"
+		hibernateValidatorExprssion="@Length(max=100)"
+	/>
+	<view_count columnAlias="浏览数"
+		javaType="Long" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="ViewCountEnum"
+		hibernateValidatorExprssion=""
+	/>
+	<status columnAlias="活动状态: -1活动已经满员 ,1正在进行 0活动结束,200已见面"
+		javaType="Integer" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="StatusEnum"
+		hibernateValidatorExprssion=""
+	/>
+	<lng columnAlias="经度"
+		javaType="Float" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="LngEnum"
+		hibernateValidatorExprssion=""
+	/>
+	<lat columnAlias="纬度"
+		javaType="Float" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="LatEnum"
+		hibernateValidatorExprssion=""
+	/>
+	<pay_type columnAlias="是否请客0 : 不请客 1 : 请客"
+		javaType="Integer" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="PayTypeEnum"
+		hibernateValidatorExprssion=""
+	/>
+	<gender columnAlias="活动性别,男:1,女:2"
+		javaType="Integer" 
+		unique="false" nullable="true" pk="false"
+		updatable="true" insertable="true"
+		enumString="" enumClassName="GenderEnum"
+		hibernateValidatorExprssion=""
+	/>
+</t_activity>

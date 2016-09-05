@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.quanjing.yd.model">
+    <class name="TmsgBoardV2" table="t_msg_board_v2">
+
+        <id name="id" column="id" type="java.lang.Integer">
+            <generator class="increment"/>
+        </id>
+		
+		
+		
+		<property 
+			name="userId" 
+			column="user_id" 
+			update="true"
+            insert="true"
+            type="java.lang.Long"
+			not-null="true" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="chatroomId" 
+			column="chatroom_id" 
+			update="true"
+            insert="true"
+            type="java.lang.Long"
+			not-null="true" 
+			unique="false" 
+			length="19"/>
+		
+		<property 
+			name="content" 
+			column="content" 
+			update="true"
+            insert="true"
+            type="java.lang.String"
+			not-null="false" 
+			unique="false" 
+			length="3000"/>
+		
+		<property 
+			name="type" 
+			column="type" 
+			update="true"
+            insert="true"
+            type="java.lang.Integer"
+			not-null="true" 
+			unique="false" 
+			length="10"/>
+		
+		<property 
+			name="createTime" 
+			column="create_time" 
+			update="true"
+            insert="true"
+            type="java.util.Date"
+			not-null="true" 
+			unique="false" 
+			length="0"/>
+		
+		<!-- One-To-Many attributes -->
+
+		<!-- Many-To-One attributes -->
+
+    </class>
+</hibernate-mapping>
+

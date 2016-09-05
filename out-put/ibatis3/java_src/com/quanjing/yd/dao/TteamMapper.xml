@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.quanjing.platform.dao.TteamDao">
+
+	
+    <resultMap id="Tteam" type="com.quanjing.model.platform.Tteam">
+        <result property="id" column="id"/>
+        <result property="user1Id" column="user1_id"/>
+        <result property="user2Id" column="user2_id"/>
+        <result property="type" column="type"/>
+        <result property="cityId" column="city_id"/>
+        <result property="address" column="address"/>
+        <result property="payType" column="pay_type"/>
+        <result property="freeTime" column="free_time"/>
+        <result property="haunt" column="haunt"/>
+        <result property="status" column="status"/>
+        <result property="createTime" column="create_time"/>
+        <result property="star" column="star"/>
+        <result property="temp" column="temp"/>
+        <result property="signature" column="signature"/>
+        <result property="freeDay" column="free_day"/>
+        <result property="food" column="food"/>
+        <result property="alcohol" column="alcohol"/>
+        <result property="teamGender" column="team_gender"/>
+        <result property="partyTime" column="party_time"/>
+        <result property="fee" column="fee"/>
+        <result property="palPurpose" column="pal_purpose"/>
+    </resultMap>
+	
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="columns">
+	    <![CDATA[
+        	id ,
+        	user1_id ,
+        	user2_id ,
+        	type ,
+        	city_id ,
+        	address ,
+        	pay_type ,
+        	free_time ,
+        	haunt ,
+        	status ,
+        	create_time ,
+        	star ,
+        	temp ,
+        	signature ,
+        	free_day ,
+        	food ,
+        	alcohol ,
+        	team_gender ,
+        	party_time ,
+        	fee ,
+        	pal_purpose 
+	    ]]>
+	</sql>
+
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert"  useGeneratedKeys="true" keyProperty="id" 
+	>
+    <![CDATA[
+        INSERT INTO t_team (
+        	id ,
+        	user1_id ,
+        	user2_id ,
+        	type ,
+        	city_id ,
+        	address ,
+        	pay_type ,
+        	free_time ,
+        	haunt ,
+        	status ,
+        	create_time ,
+        	star ,
+        	temp ,
+        	signature ,
+        	free_day ,
+        	food ,
+        	alcohol ,
+        	team_gender ,
+        	party_time ,
+        	fee ,
+        	pal_purpose 
+        ) VALUES (
+        	#{id} ,
+        	#{user1Id} ,
+        	#{user2Id} ,
+        	#{type} ,
+        	#{cityId} ,
+        	#{address} ,
+        	#{payType} ,
+        	#{freeTime} ,
+        	#{haunt} ,
+        	#{status} ,
+        	#{createTime} ,
+        	#{star} ,
+        	#{temp} ,
+        	#{signature} ,
+        	#{freeDay} ,
+        	#{food} ,
+        	#{alcohol} ,
+        	#{teamGender} ,
+        	#{partyTime} ,
+        	#{fee} ,
+        	#{palPurpose} 
+        )
+    ]]>
+		<!--	
+			oracle: order="BEFORE" SELECT sequenceName.nextval AS ID FROM DUAL 
+			DB2: order="BEFORE"" values nextval for sequenceName
+		<selectKey resultType="java.lang.Long" order="BEFORE" keyProperty="userId">
+			SELECT sequenceName.nextval AS ID FROM DUAL 
+        </selectKey>
+		-->
+	</insert>
+    
+	<update id="update">
+        UPDATE t_team
+        <trim prefix="SET" suffixOverrides=",">  
+	        <if test="@Ognl@isNotEmpty(user1Id)">
+	        user1_id = #{user1Id,jdbcType=BIGINT} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(user2Id)">
+	        user2_id = #{user2Id,jdbcType=BIGINT} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(type)">
+	        type = #{type,jdbcType=INTEGER} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(cityId)">
+	        city_id = #{cityId,jdbcType=BIGINT} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(address)">
+	        address = #{address,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(payType)">
+	        pay_type = #{payType,jdbcType=INTEGER} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(freeTime)">
+	        free_time = #{freeTime,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(haunt)">
+	        haunt = #{haunt,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(status)">
+	        status = #{status,jdbcType=INTEGER} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(createTime)">
+	        create_time = #{createTime,jdbcType=TIMESTAMP} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(star)">
+	        star = #{star,jdbcType=REAL} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(temp)">
+	        temp = #{temp,jdbcType=INTEGER} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(signature)">
+	        signature = #{signature,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(freeDay)">
+	        free_day = #{freeDay,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(food)">
+	        food = #{food,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(alcohol)">
+	        alcohol = #{alcohol,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(teamGender)">
+	        team_gender = #{teamGender,jdbcType=INTEGER} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(partyTime)">
+	        party_time = #{partyTime,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(fee)">
+	        fee = #{fee,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(palPurpose)">
+	        pal_purpose = #{palPurpose,jdbcType=VARCHAR} 
+	        </if>
+ 	     </trim>
+        WHERE 
+	        id = #{id} 
+	</update>
+
+    <delete id="delete">
+    <![CDATA[
+        DELETE FROM t_team 
+        WHERE
+	        id = #{id} 
+    ]]>
+    </delete>
+    
+    <select id="getById" resultMap="Tteam">
+		SELECT <include refid="columns" />
+	    <![CDATA[
+		    FROM t_team 
+	        WHERE 
+		        id = #{id} 
+	    ]]>
+	</select>
+	
+		
+    <select id="findCount" resultType="long">
+        SELECT count(*) FROM t_team 
+		<include refid="findWhere"/>    
+    </select>
+    
+    <!--
+    	分页查询已经使用Dialect进行分页,也可以不使用Dialect直接编写分页
+    	因为分页查询将传 offset,pageSize,lastRows 三个参数,不同的数据库可以根于此三个参数属性应用不同的分页实现
+    -->
+    <select id="findPage" resultMap="Tteam">
+    	SELECT <include refid="columns" />
+	    FROM t_team 
+		<include refid="findWhere"/>
+		
+		<if test="@Ognl@isNotEmpty(sortColumns)">
+			ORDER BY ${sortColumns}
+		</if>
+    </select>
+
+	
+	<sql id="findWhere">
+		<!-- ognl访问静态方法的表达式 为@class@method(args),以下为调用rapid中的Ognl.isNotEmpty()方法,还有其它方法如isNotBlank()可以使用，具体请查看Ognl类 -->
+		<where>	      				
+	       <if test="@Ognl@isNotEmpty(id)">
+				AND id = #{id}
+			</if>
+	       <if test="@Ognl@isNotEmpty(user1Id)">
+				AND user1_id = #{user1Id}
+			</if>
+	       <if test="@Ognl@isNotEmpty(user2Id)">
+				AND user2_id = #{user2Id}
+			</if>
+	       <if test="@Ognl@isNotEmpty(type)">
+				AND type = #{type}
+			</if>
+	       <if test="@Ognl@isNotEmpty(cityId)">
+				AND city_id = #{cityId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(address)">
+				AND address = #{address}
+			</if>
+	       <if test="@Ognl@isNotEmpty(payType)">
+				AND pay_type = #{payType}
+			</if>
+	       <if test="@Ognl@isNotEmpty(freeTime)">
+				AND free_time = #{freeTime}
+			</if>
+	       <if test="@Ognl@isNotEmpty(haunt)">
+				AND haunt = #{haunt}
+			</if>
+	       <if test="@Ognl@isNotEmpty(status)">
+				AND status = #{status}
+			</if>
+	       <if test="@Ognl@isNotEmpty(createTimeBegin)">
+				AND create_time >= #{createTimeBegin}
+		   </if>
+		   <if test="@Ognl@isNotEmpty(createTimeEnd)">
+				AND create_time &lt;= #{createTimeEnd}
+		   </if>
+	       <if test="@Ognl@isNotEmpty(star)">
+				AND star = #{star}
+			</if>
+	       <if test="@Ognl@isNotEmpty(temp)">
+				AND temp = #{temp}
+			</if>
+	       <if test="@Ognl@isNotEmpty(signature)">
+				AND signature = #{signature}
+			</if>
+	       <if test="@Ognl@isNotEmpty(freeDay)">
+				AND free_day = #{freeDay}
+			</if>
+	       <if test="@Ognl@isNotEmpty(food)">
+				AND food = #{food}
+			</if>
+	       <if test="@Ognl@isNotEmpty(alcohol)">
+				AND alcohol = #{alcohol}
+			</if>
+	       <if test="@Ognl@isNotEmpty(teamGender)">
+				AND team_gender = #{teamGender}
+			</if>
+	       <if test="@Ognl@isNotEmpty(partyTime)">
+				AND party_time = #{partyTime}
+			</if>
+	       <if test="@Ognl@isNotEmpty(fee)">
+				AND fee = #{fee}
+			</if>
+	       <if test="@Ognl@isNotEmpty(palPurpose)">
+				AND pal_purpose = #{palPurpose}
+			</if>
+		</where>
+	</sql>
+	
+</mapper>
+

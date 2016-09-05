@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"
+"http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+
+<!-- 不使用namespace的话sql搜索定位会比较方便 -->
+<mapper namespace="com.quanjing.platform.dao.TuserDao">
+
+	
+    <resultMap id="Tuser" type="com.quanjing.model.platform.Tuser">
+        <result property="id" column="id"/>
+        <result property="nickName" column="nick_name"/>
+        <result property="username" column="username"/>
+        <result property="password" column="password"/>
+        <result property="phone" column="phone"/>
+        <result property="name" column="name"/>
+        <result property="gender" column="gender"/>
+        <result property="type" column="type"/>
+        <result property="schoolId" column="school_id"/>
+        <result property="schoolName" column="school_name"/>
+        <result property="subject" column="subject"/>
+        <result property="industry" column="industry"/>
+        <result property="company" column="company"/>
+        <result property="position" column="position"/>
+        <result property="birthday" column="birthday"/>
+        <result property="avatar" column="avatar"/>
+        <result property="emotional" column="emotional"/>
+        <result property="signature" column="signature"/>
+        <result property="homeTown" column="home_town"/>
+        <result property="interest" column="interest"/>
+        <result property="star" column="star"/>
+        <result property="truthInfoStar" column="truth_info_star"/>
+        <result property="friendlyStar" column="friendly_star"/>
+        <result property="appearStar" column="appear_star"/>
+        <result property="createTime" column="create_time"/>
+        <result property="status" column="status"/>
+        <result property="lastLoginTime" column="last_login_time"/>
+    </resultMap>
+	
+	<!-- 用于select查询公用抽取的列 -->
+	<sql id="columns">
+	    <![CDATA[
+        	id ,
+        	nick_name ,
+        	username ,
+        	password ,
+        	phone ,
+        	name ,
+        	gender ,
+        	type ,
+        	school_id ,
+        	school_name ,
+        	subject ,
+        	industry ,
+        	company ,
+        	position ,
+        	birthday ,
+        	avatar ,
+        	emotional ,
+        	signature ,
+        	home_town ,
+        	interest ,
+        	star ,
+        	truth_info_star ,
+        	friendly_star ,
+        	appear_star ,
+        	create_time ,
+        	status ,
+        	last_login_time 
+	    ]]>
+	</sql>
+
+	<!-- useGeneratedKeys="true" keyProperty="xxx" for sqlserver and mysql -->
+	<insert id="insert"  useGeneratedKeys="true" keyProperty="id" 
+	>
+    <![CDATA[
+        INSERT INTO t_user (
+        	id ,
+        	nick_name ,
+        	username ,
+        	password ,
+        	phone ,
+        	name ,
+        	gender ,
+        	type ,
+        	school_id ,
+        	school_name ,
+        	subject ,
+        	industry ,
+        	company ,
+        	position ,
+        	birthday ,
+        	avatar ,
+        	emotional ,
+        	signature ,
+        	home_town ,
+        	interest ,
+        	star ,
+        	truth_info_star ,
+        	friendly_star ,
+        	appear_star ,
+        	create_time ,
+        	status ,
+        	last_login_time 
+        ) VALUES (
+        	#{id} ,
+        	#{nickName} ,
+        	#{username} ,
+        	#{password} ,
+        	#{phone} ,
+        	#{name} ,
+        	#{gender} ,
+        	#{type} ,
+        	#{schoolId} ,
+        	#{schoolName} ,
+        	#{subject} ,
+        	#{industry} ,
+        	#{company} ,
+        	#{position} ,
+        	#{birthday} ,
+        	#{avatar} ,
+        	#{emotional} ,
+        	#{signature} ,
+        	#{homeTown} ,
+        	#{interest} ,
+        	#{star} ,
+        	#{truthInfoStar} ,
+        	#{friendlyStar} ,
+        	#{appearStar} ,
+        	#{createTime} ,
+        	#{status} ,
+        	#{lastLoginTime} 
+        )
+    ]]>
+		<!--	
+			oracle: order="BEFORE" SELECT sequenceName.nextval AS ID FROM DUAL 
+			DB2: order="BEFORE"" values nextval for sequenceName
+		<selectKey resultType="java.lang.Long" order="BEFORE" keyProperty="userId">
+			SELECT sequenceName.nextval AS ID FROM DUAL 
+        </selectKey>
+		-->
+	</insert>
+    
+	<update id="update">
+        UPDATE t_user
+        <trim prefix="SET" suffixOverrides=",">  
+	        <if test="@Ognl@isNotEmpty(nickName)">
+	        nick_name = #{nickName,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(username)">
+	        username = #{username,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(password)">
+	        password = #{password,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(phone)">
+	        phone = #{phone,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(name)">
+	        name = #{name,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(gender)">
+	        gender = #{gender,jdbcType=INTEGER} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(type)">
+	        type = #{type,jdbcType=INTEGER} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(schoolId)">
+	        school_id = #{schoolId,jdbcType=BIGINT} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(schoolName)">
+	        school_name = #{schoolName,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(subject)">
+	        subject = #{subject,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(industry)">
+	        industry = #{industry,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(company)">
+	        company = #{company,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(position)">
+	        position = #{position,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(birthday)">
+	        birthday = #{birthday,jdbcType=DATE} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(avatar)">
+	        avatar = #{avatar,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(emotional)">
+	        emotional = #{emotional,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(signature)">
+	        signature = #{signature,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(homeTown)">
+	        home_town = #{homeTown,jdbcType=BIGINT} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(interest)">
+	        interest = #{interest,jdbcType=VARCHAR} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(star)">
+	        star = #{star,jdbcType=DECIMAL} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(truthInfoStar)">
+	        truth_info_star = #{truthInfoStar,jdbcType=DECIMAL} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(friendlyStar)">
+	        friendly_star = #{friendlyStar,jdbcType=DECIMAL} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(appearStar)">
+	        appear_star = #{appearStar,jdbcType=DECIMAL} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(createTime)">
+	        create_time = #{createTime,jdbcType=TIMESTAMP} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(status)">
+	        status = #{status,jdbcType=INTEGER} ,
+	        </if>
+	        <if test="@Ognl@isNotEmpty(lastLoginTime)">
+	        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP} 
+	        </if>
+ 	     </trim>
+        WHERE 
+	        id = #{id} 
+	</update>
+
+    <delete id="delete">
+    <![CDATA[
+        DELETE FROM t_user 
+        WHERE
+	        id = #{id} 
+    ]]>
+    </delete>
+    
+    <select id="getById" resultMap="Tuser">
+		SELECT <include refid="columns" />
+	    <![CDATA[
+		    FROM t_user 
+	        WHERE 
+		        id = #{id} 
+	    ]]>
+	</select>
+	
+		
+    <select id="findCount" resultType="long">
+        SELECT count(*) FROM t_user 
+		<include refid="findWhere"/>    
+    </select>
+    
+    <!--
+    	分页查询已经使用Dialect进行分页,也可以不使用Dialect直接编写分页
+    	因为分页查询将传 offset,pageSize,lastRows 三个参数,不同的数据库可以根于此三个参数属性应用不同的分页实现
+    -->
+    <select id="findPage" resultMap="Tuser">
+    	SELECT <include refid="columns" />
+	    FROM t_user 
+		<include refid="findWhere"/>
+		
+		<if test="@Ognl@isNotEmpty(sortColumns)">
+			ORDER BY ${sortColumns}
+		</if>
+    </select>
+
+	
+	<sql id="findWhere">
+		<!-- ognl访问静态方法的表达式 为@class@method(args),以下为调用rapid中的Ognl.isNotEmpty()方法,还有其它方法如isNotBlank()可以使用，具体请查看Ognl类 -->
+		<where>	      				
+	       <if test="@Ognl@isNotEmpty(id)">
+				AND id = #{id}
+			</if>
+	       <if test="@Ognl@isNotEmpty(nickName)">
+				AND nick_name = #{nickName}
+			</if>
+	       <if test="@Ognl@isNotEmpty(username)">
+				AND username = #{username}
+			</if>
+	       <if test="@Ognl@isNotEmpty(password)">
+				AND password = #{password}
+			</if>
+	       <if test="@Ognl@isNotEmpty(phone)">
+				AND phone = #{phone}
+			</if>
+	       <if test="@Ognl@isNotEmpty(name)">
+				AND name = #{name}
+			</if>
+	       <if test="@Ognl@isNotEmpty(gender)">
+				AND gender = #{gender}
+			</if>
+	       <if test="@Ognl@isNotEmpty(type)">
+				AND type = #{type}
+			</if>
+	       <if test="@Ognl@isNotEmpty(schoolId)">
+				AND school_id = #{schoolId}
+			</if>
+	       <if test="@Ognl@isNotEmpty(schoolName)">
+				AND school_name = #{schoolName}
+			</if>
+	       <if test="@Ognl@isNotEmpty(subject)">
+				AND subject = #{subject}
+			</if>
+	       <if test="@Ognl@isNotEmpty(industry)">
+				AND industry = #{industry}
+			</if>
+	       <if test="@Ognl@isNotEmpty(company)">
+				AND company = #{company}
+			</if>
+	       <if test="@Ognl@isNotEmpty(position)">
+				AND position = #{position}
+			</if>
+	       <if test="@Ognl@isNotEmpty(birthdayBegin)">
+				AND birthday >= #{birthdayBegin}
+		   </if>
+		   <if test="@Ognl@isNotEmpty(birthdayEnd)">
+				AND birthday &lt;= #{birthdayEnd}
+		   </if>
+	       <if test="@Ognl@isNotEmpty(avatar)">
+				AND avatar = #{avatar}
+			</if>
+	       <if test="@Ognl@isNotEmpty(emotional)">
+				AND emotional = #{emotional}
+			</if>
+	       <if test="@Ognl@isNotEmpty(signature)">
+				AND signature = #{signature}
+			</if>
+	       <if test="@Ognl@isNotEmpty(homeTown)">
+				AND home_town = #{homeTown}
+			</if>
+	       <if test="@Ognl@isNotEmpty(interest)">
+				AND interest = #{interest}
+			</if>
+	       <if test="@Ognl@isNotEmpty(star)">
+				AND star = #{star}
+			</if>
+	       <if test="@Ognl@isNotEmpty(truthInfoStar)">
+				AND truth_info_star = #{truthInfoStar}
+			</if>
+	       <if test="@Ognl@isNotEmpty(friendlyStar)">
+				AND friendly_star = #{friendlyStar}
+			</if>
+	       <if test="@Ognl@isNotEmpty(appearStar)">
+				AND appear_star = #{appearStar}
+			</if>
+	       <if test="@Ognl@isNotEmpty(createTimeBegin)">
+				AND create_time >= #{createTimeBegin}
+		   </if>
+		   <if test="@Ognl@isNotEmpty(createTimeEnd)">
+				AND create_time &lt;= #{createTimeEnd}
+		   </if>
+	       <if test="@Ognl@isNotEmpty(status)">
+				AND status = #{status}
+			</if>
+	       <if test="@Ognl@isNotEmpty(lastLoginTimeBegin)">
+				AND last_login_time >= #{lastLoginTimeBegin}
+		   </if>
+		   <if test="@Ognl@isNotEmpty(lastLoginTimeEnd)">
+				AND last_login_time &lt;= #{lastLoginTimeEnd}
+		   </if>
+		</where>
+	</sql>
+	
+</mapper>
+

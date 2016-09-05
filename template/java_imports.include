@@ -1,0 +1,13 @@
+import java.util.List;
+
+
+
+import ${basepackage}.model.*;
+import ${basepackage}.vo.query.*;
+
+/**
+ * @author xiaolong.tan
+ * @version 1.0
+ * @since 1.0
+ */
+
